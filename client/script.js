@@ -12,7 +12,8 @@ socket.on('received-message', (message) => {
 
 function sendMessage(msg) {
     //SEND EVENT FROM CLIENT TO SERVER
-    socket.emit('send-message', msg);
+    const room = prompt('Room');
+    socket.emit('send-message', msg, room);
 }
 
 window.sendMessage = sendMessage;
