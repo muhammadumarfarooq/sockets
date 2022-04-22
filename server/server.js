@@ -9,6 +9,7 @@ io.on('connection', socket => {
     //    RECEIVE DATA FROM CLIENT
     socket.on('send-message', (message) => {
         console.log(message);
-        io.emit('received-message', message);
+        // io.emit('received-message', message);
+        socket.broadcast.emit('received-message', message);
     });
 });
