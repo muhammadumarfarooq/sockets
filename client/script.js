@@ -16,4 +16,10 @@ function sendMessage(msg) {
     socket.emit('send-message', msg, room);
 }
 
+function joinRoom(room) {
+   socket.emit('join-room', room);
+   console.log('Joined', room);
+}
+
 window.sendMessage = sendMessage;
+window.joinRoom = joinRoom;
