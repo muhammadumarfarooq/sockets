@@ -14,7 +14,8 @@ io.on('connection', socket => {
         socket.to(room).emit('received-message', message); // will send message to only a specific room.
     });
 
-    socket.on('join-room', (room) => {
+    socket.on('join-room', (room, cb) => {
         socket.join(room);
+        cb(`Joined ${room}`);
     });
 });

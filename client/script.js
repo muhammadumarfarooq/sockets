@@ -17,8 +17,9 @@ function sendMessage(msg) {
 }
 
 function joinRoom(room) {
-   socket.emit('join-room', room);
-   console.log('Joined', room);
+   socket.emit('join-room', room, message => {
+       console.log(message);
+   });
 }
 
 window.sendMessage = sendMessage;
