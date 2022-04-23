@@ -1,6 +1,7 @@
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:3000');
+const userSocket = io('http://localhost:3000/user');
 
 socket.on('connect', () => {
     console.log('You are connected with id', socket.id);

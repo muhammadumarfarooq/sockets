@@ -6,8 +6,14 @@ const io = require('socket.io')(3000, {
     }
 });
 
+const userIo = io.of('/user');
+
+userIo.on('connection', socket => {
+    console.log(socket.id, 'User Io connected');
+});
+
 io.on('connection', socket => {
-    console.log(socket.id);
+    console.log(socket.id, 'IO');
     //    RECEIVE DATA FROM CLIENT
     socket.on('send-message', (message, room) => {
         console.log(message);
